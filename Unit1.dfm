@@ -35,16 +35,16 @@ object Form1: TForm1
     Height = 305
     TabOrder = 1
   end
-  object Button1: TButton
+  object BtnCalcular: TButton
     Left = 24
     Top = 392
     Width = 97
     Height = 17
     Caption = 'Calcular'
     TabOrder = 2
-    OnClick = Button1Click
+    OnClick = BtnCalcularClick
   end
-  object Button2: TButton
+  object BtnLimpar: TButton
     Left = 144
     Top = 392
     Width = 97

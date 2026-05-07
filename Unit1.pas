@@ -10,14 +10,15 @@ type
   TForm1 = class(TForm)
     EdtNumero: TEdit;
     MemoResultado: TMemo;
-    Button1: TButton;
-    Button2: TButton;
+    BtnCalcular: TButton;
+    BtnLimpar: TButton;
     Label1: TLabel;
-    procedure Button1Click(Sender: TObject);
+    procedure BtnCalcularClick(Sender: TObject);
   private
     { Private declarations }
   public
-    { Public declarations }
+    NumeroDigitadoStr: string;
+    NumeroDigitadoInt: Integer;
   end;
 
 var
@@ -27,7 +28,7 @@ implementation
 
 {$R *.dfm}
 
-procedure TForm1.Button1Click(Sender: TObject);
+procedure TForm1.BtnCalcularClick(Sender: TObject);
 
 var
   NumeroDigitadoStr: string;
@@ -35,20 +36,19 @@ var
   ValidaPonto,ValidaVirgula: Boolean  ;
 
 begin
-  NumeroDigitadoStr:= EdtNumero.Text;
-  ValidaPonto:= Pos('.',NumeroDigitadoStr) > 0;
-  ValidaVirgula:= Pos(',',NumeroDigitadoStr) > 0;
-
-  NumeroDigitadoInt:= StrToInt(EdtNumero.Text);
+  NumeroDigitadoStr:= EdtNumero.Text;   //pega o input do edt em formato str
+  ValidaPonto:= Pos('.',NumeroDigitadoStr) > 0;  //retorna um bool de pontuãção
+  ValidaVirgula:= Pos(',',NumeroDigitadoStr) > 0;  //retorna um bool de pontuação
 
 
-  if (NumeroDigitadoInt < 0) or (ValidaPonto) or (ValidaVirgula) then
+  if (NumeroDigitadoStr = '') then
+    ShowMessage('Não é possível continuar a operação, digite um número!')
+  else if (NumeroDigitadoInt < 0)  then  //valida se o usuário digitou ou negativo
+    ShowMessage('Não é possível continuar a operação, digite um número positivo!')
+  else if (ValidaPonto = True) or (ValidaVirgula = True) then // Valida se o usuário digitou um número decimal (com '.' ou com ',')
+    ShowMessage('Não é possível continuar a operação, digite um número inteiro (sem ponto flutuante - . )!');
+  end ;
 
 
-    else
-
-
-
-end;
 
 end.

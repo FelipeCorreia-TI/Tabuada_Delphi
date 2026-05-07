@@ -1,10 +1,10 @@
 object Form1: TForm1
   Left = 542
   Top = 170
-  Width = 284
-  Height = 457
+  Width = 281
+  Height = 454
   Align = alCustom
-  Caption = 'Form1'
+  Caption = 'Tabuada'
   Color = clActiveCaption
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -30,10 +30,13 @@ object Form1: TForm1
   end
   object MemoResultado: TMemo
     Left = 24
-    Top = 72
+    Top = 56
     Width = 217
-    Height = 305
+    Height = 321
+    Align = alCustom
+    ReadOnly = True
     TabOrder = 1
+    WordWrap = False
   end
   object BtnCalcular: TButton
     Left = 24

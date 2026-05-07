@@ -17,8 +17,7 @@ type
   private
     { Private declarations }
   public
-    NumeroDigitadoStr: string;
-    NumeroDigitadoInt: Integer;
+
   end;
 
 var
@@ -46,9 +45,9 @@ begin
   else if (NumeroDigitadoInt < 0)  then  //valida se o usuário digitou ou negativo
     ShowMessage('Não é possível continuar a operação, digite um número positivo!')
   else if (ValidaPonto = True) or (ValidaVirgula = True) then // Valida se o usuário digitou um número decimal (com '.' ou com ',')
-    ShowMessage('Não é possível continuar a operação, digite um número inteiro (sem ponto flutuante - . )!');
-  end ;
-
-
+    ShowMessage('Não é possível continuar a operação, digite um número inteiro (sem ponto flutuante - . )!')
+  else
+    NumeroDigitadoInt:=  StrToInt(EdtNumero.Text);
+  end;
 
 end.

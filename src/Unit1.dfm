@@ -34,6 +34,7 @@ object Form1: TForm1
     Height = 21
     Cursor = crIBeam
     TabOrder = 0
+    Text = '0'
     OnKeyPress = EdtNumeroKeyPress
   end
   object MemoResultado: TMemo

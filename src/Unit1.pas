@@ -14,6 +14,7 @@ type
     BtnLimpar: TButton;
     Label1: TLabel;
     procedure BtnCalcularClick(Sender: TObject);
+    procedure BtnLimparClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -42,24 +43,35 @@ begin
   ValidaPonto:= Pos('.',NumeroDigitadoStr) > 0;  //retorna um bool de pontuãção
   ValidaVirgula:= Pos(',',NumeroDigitadoStr) > 0;  //retorna um bool de pontuação
 
-
   if (NumeroDigitadoStr = '') then
-    ShowMessage('Não é possível continuar a operação, digite um número!')
+    showMessage('Não é possível continuar a operação, digite um número!')
   else if (ValidaPonto = True) or (ValidaVirgula = True) then // Valida se o usuário digitou um número decimal (com '.' ou com ',')
-    ShowMessage('Não é possível continuar a operação, digite um número inteiro (sem ponto flutuante - . )!')
+     ShowMessage('Não é possível continuar a operação, digite um número inteiro (sem ponto flutuante - . )!')
   else if(NumeroDigitadoInt < 0)  then  //valida se o usuário digitou ou negativo
-    ShowMessage('Não é possível continuar a operação, digite um número positivo!')
+     ShowMessage('Não é possível continuar a operação, digite um número positivo!')
   else
-    NumeroDigitadoInt:=  StrToInt(EdtNumero.Text);   //captura o valor digitado
+     NumeroDigitadoInt:=  StrToInt(EdtNumero.Text);   //captura o valor digitado
   begin
     multiplicando:= NumeroDigitadoInt ;  //coloca esse valor dentro para facilitar a identificação
+    MemoResultado.Lines.Add('---Tabuada---'+ sLineBreak);
     for multiplicador:=1 to 10 do  //Loop que percorre de 1 a 10
     begin
       resultado:= multiplicando * multiplicador; // Calcula o resultado da multiplicação
       resultadoFormatado:= IntToStr(multiplicando) + ' x ' + IntToStr(multiplicador) + ' = ' + IntToStr(resultado); //Pré-define o texto formatado
       MemoResultado.Lines.Add(resultadoFormatado); //Adiciona ao memo todos resultados em loop
-    end;
+    BtnCalcular.Enabled:=False;
+
  end
+ end
+end;
+
+procedure TForm1.BtnLimparClick(Sender: TObject);
+begin
+  MemoResultado.Clear;
+  EdtNumero.Text:= '0';
+  NumeroDigitadoInt:= 0;
+  BtnCalcular.Enabled:= True;
+
 end;
 
 end.

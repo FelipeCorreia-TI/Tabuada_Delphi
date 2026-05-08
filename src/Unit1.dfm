@@ -1,8 +1,8 @@
 object Form1: TForm1
-  Left = 854
-  Top = 182
+  Left = 529
+  Top = 159
   Width = 281
-  Height = 454
+  Height = 455
   Align = alCustom
   Caption = 'Tabuada'
   Color = clActiveCaption
@@ -34,6 +34,13 @@ object Form1: TForm1
     Width = 217
     Height = 321
     Align = alCustom
+    Alignment = taCenter
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -15
+    Font.Name = 'MS UI Gothic'
+    Font.Style = [fsBold]
+    ParentFont = False
     ReadOnly = True
     TabOrder = 1
     WordWrap = False
@@ -54,5 +61,6 @@ object Form1: TForm1
     Height = 17
     Caption = 'Limpar'
     TabOrder = 3
+    OnClick = BtnLimparClick
   end
 end

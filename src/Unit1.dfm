@@ -1,6 +1,6 @@
 object Form1: TForm1
-  Left = 542
-  Top = 170
+  Left = 854
+  Top = 182
   Width = 281
   Height = 454
   Align = alCustom

@@ -15,6 +15,7 @@ type
     Label1: TLabel;
     procedure BtnCalcularClick(Sender: TObject);
     procedure BtnLimparClick(Sender: TObject);
+    procedure EdtNumeroKeyPress(Sender: TObject; var Key: Char);
   private
     { Private declarations }
   public
@@ -73,5 +74,11 @@ begin
   BtnCalcular.Enabled:= True;
 
 end;
+
+procedure TForm1.EdtNumeroKeyPress(Sender: TObject; var Key: Char);
+begin
+  if not(Key in ['0'..'9']) then
+    key:=#0
+  end;
 
 end.

@@ -17,7 +17,8 @@ type
   private
     { Private declarations }
   public
-
+    NumeroDigitadoStr: string;
+    NumeroDigitadoInt: Integer;
   end;
 
 var
@@ -30,9 +31,9 @@ implementation
 procedure TForm1.BtnCalcularClick(Sender: TObject);
 
 var
-  NumeroDigitadoStr: string;
-  NumeroDigitadoInt: Integer;
+
   ValidaPonto,ValidaVirgula: Boolean  ;
+  i:integer;
 
 begin
   NumeroDigitadoStr:= EdtNumero.Text;   //pega o input do edt em formato str
@@ -42,12 +43,23 @@ begin
 
   if (NumeroDigitadoStr = '') then
     ShowMessage('Não é possível continuar a operação, digite um número!')
-  else if (NumeroDigitadoInt < 0)  then  //valida se o usuário digitou ou negativo
-    ShowMessage('Não é possível continuar a operação, digite um número positivo!')
   else if (ValidaPonto = True) or (ValidaVirgula = True) then // Valida se o usuário digitou um número decimal (com '.' ou com ',')
     ShowMessage('Não é possível continuar a operação, digite um número inteiro (sem ponto flutuante - . )!')
+  else if(NumeroDigitadoInt < 0)  then  //valida se o usuário digitou ou negativo
+    ShowMessage('Não é possível continuar a operação, digite um número positivo!')
   else
     NumeroDigitadoInt:=  StrToInt(EdtNumero.Text);
+  begin
+    For i:= 1 to 11 do
+    begin
+      MemoResultado.Lines[i-1]:= NumeroDigitadoStr
+
+
+    end;
   end;
+
+
+
+
 
 end.

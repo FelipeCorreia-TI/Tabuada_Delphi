@@ -77,7 +77,7 @@ end;
 
 procedure TForm1.EdtNumeroKeyPress(Sender: TObject; var Key: Char);
 begin
-  if not(Key in ['0'..'9']) then
+  if not(Key in ['0'..'9',#8]) then
     key:=#0
   end;
 
